@@ -13,7 +13,7 @@ import (
 
 
 
-var configFile = flag.String("f", "/Users/seven/Developer/goenv/gozerobasic/app/gateway/api/v1/captcha/etc/captcha-api.yaml", "the config file")
+var configFile = flag.String("f", "etc/captcha-api.yaml", "the config file")
 
 func main() {
 	flag.Parse()
