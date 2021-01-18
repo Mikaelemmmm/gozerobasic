@@ -1,0 +1,28 @@
+info(
+	title: "验证码"
+	desc: "验证码"
+	author: "Mikael"
+	email: "13247629622@163.com"
+)
+
+type (
+	CaptchaReq struct {
+		mobile string `json:"mobile"`
+	}
+	
+	CaptchaResp struct {
+		ok bool `json:"ok"`
+	}
+)
+
+
+service captcha-api {
+	@handler RegisterHandler // 注册获取验证码
+	post /v1/captcha/register(CaptchaReq) returns(CaptchaResp)
+	
+	@handler LoginHandler // 登陆获取验证码
+	post /v1/captcha/login(CaptchaReq) returns(CaptchaResp)
+	
+	@handler ForgetPwdHandler // 忘记密码获取验证码
+	post /v1/captcha/forgetPwd(CaptchaReq) returns(CaptchaResp)
+}

@@ -1,0 +1,18 @@
+Name: usercenter-rpc
+ListenOn: 127.0.0.1:9001
+Etcd:
+  Hosts:
+  - 127.0.0.1:2379
+  Key: usercenter-rpc
+
+#redis
+Redis:
+  Host: 127.0.0.1:6379
+  Type: node
+
+#cache
+Cache:
+  - Host: 127.0.0.1:6379
+
+#mysql
+DataSource: root:root@tcp(127.0.0.1:3306)/fishtwo-usercenter

@@ -1,0 +1,15 @@
+info(
+	title: // TODO: add title
+	desc: // TODO: add description
+	author: "Mikael"
+	email: "13247629622@163.com"
+)
+
+type BatchSendMessageReq {}
+
+type BatchSendMessageResp {}
+
+service message-job-api {
+	@handler batchSendMessageHandler // 批量发送短信
+	post batchSendMessage(BatchSendMessageReq) returns(BatchSendMessageResp)
+}

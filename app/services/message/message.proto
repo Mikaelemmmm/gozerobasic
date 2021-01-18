@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package message;
+
+message SendCaptchaReq {
+  int64 kind = 1;
+  string mobile = 2;
+}
+
+message SendCaptchaResp {
+  bool ok = 1;
+}
+
+message ValidateCaptchaReq {
+  int64 kind = 1;
+  string mobile = 2;
+  string captcha = 3;
+}
+
+message ValidateCaptchaResp {
+  bool ok = 1;
+}
+
+service Message {
+  rpc SendCaptcha(SendCaptchaReq) returns(SendCaptchaResp);
+  rpc ValidateCaptcha(ValidateCaptchaReq) returns(ValidateCaptchaResp);
+}

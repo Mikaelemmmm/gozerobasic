@@ -1,0 +1,11 @@
+Name: captcha-api
+Host: 0.0.0.0
+Port: 8002
+
+#rpc service
+MessageRpc:
+  Etcd:
+    Hosts:
+      - 127.0.0.1:2379
+    Key: message-rpc
+

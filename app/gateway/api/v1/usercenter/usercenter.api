@@ -1,0 +1,44 @@
+info(
+	title: "usercenter api gateway"
+	desc: "usercenter api gateway"
+	author: "Mikael"
+	email: "13247629622@163.com"
+)
+
+type JwtToken struct{
+	accessToken string `json:"accessToken"`
+	accessExpire int64 `json:"accessExpire"`
+	refreshAfter int64 `json:"refreshAfter"` // 建议客户端刷新token的绝对时间
+}
+
+type (
+	//注册
+	RegisterReq struct{
+		mobile string `json:"mobile"`
+		captcha string `json:"captcha"`
+	}
+	RegisterResp struct{
+		jwtToken JwtToken `json:"jwtToken"`
+	}
+)
+
+type (
+	//登陆
+	LoginReq struct{
+		authType int64 `json:"authType"`
+		authKey string `json:"authKey"`
+		captcha string `json:"captcha,optional"`
+		authSecret string `json:"authSecret,optional"`
+	}
+	LoginResp struct{
+		jwtToken JwtToken `json:"jwtToken"`
+	}
+)
+
+service usercenter-api {
+	@handler RegisterHandler
+	post /v1/register(RegisterReq)returns (RegisterResp)
+	
+	@handler LoginHandler
+	post /v1/login(LoginReq)returns (LoginResp)
+}

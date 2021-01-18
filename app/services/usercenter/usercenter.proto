@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package usercenter;
+
+message RegisterReq {
+  string mobile = 1;
+}
+message RegisterResp {
+  User user = 1;
+}
+
+message GetUserByMobileReq {
+  string mobile = 1;
+}
+message GetUserByMobileResp {
+  User user = 1;
+}
+message User {
+  int64  id = 1;
+  string mobile = 2;
+  string nickname = 3;
+  string  avatar = 4;
+  string inviteCode = 5;
+  string  info = 6;
+  int64  sex = 7;
+  int64  areaId = 8;
+}
+
+
+
+service Usercenter {
+  rpc Register(RegisterReq) returns(RegisterResp);
+  rpc GetUserByMobile(GetUserByMobileReq) returns(GetUserByMobileResp);
+}

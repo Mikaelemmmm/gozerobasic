@@ -1,0 +1,18 @@
+Name: message-job-api
+Host: 0.0.0.0
+Port: 8888
+
+#redis
+Redis:
+  Host: 127.0.0.1:6379
+  Type: node
+
+DqConf:
+  Beanstalks:
+    - Endpoint: 127.0.0.1:7771
+      Tube: tube1
+    - Endpoint: 127.0.0.1:7772
+      Tube: tube2
+  Redis:
+    Host: 127.0.0.1:6379
+    Type: node
